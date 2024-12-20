@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your favourite website</title>
+    <style>
+        /* General reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://cdn.prod.website-files.com/634e7aa49f5b025e1fd9e87b/6520394817eee978a2d3c3bf_video-editing-pc.jpeg');
+            background-size: cover;
+            background-position: center;
+            color: #000000;
+            padding: 20px;
+            text-align: center;
+            margin: 0;
+        }
+
+        /* Header styling */
+        header {
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        /* Heading styling */
+        header h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        /* Split h1 text into two lines */
+        header h1 span {
+            display: block;
+        }
+
+        /* Link styling */
+        header a {
+            display: inline-block;
+            margin: 10px 15px;
+            text-decoration: none;
+            color: rgb(30, 189, 201);
+            background-color: #333;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+            position: relative;
+        }
+
+        header a:hover {
+            background-color: #ff9800;
+            transform: scale(1.05);
+        }
+
+        /* Popup styling */
+        .popup {
+            display: none;
+            position: absolute;
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+
+        /* Responsive design for smaller screens */
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            header a {
+                padding: 8px 15px;
+                font-size: 14px;
+                margin: 8px 10px;
+            }
+
+            .popup {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1><span>Your favourite💛website</span><span>which you 🧡  visit most time 😎</span></h1>
+        <a href="https://www.google.co.in/" class="link" data-popup="Google">Google 🍳</a>
+        <a href="https://www.Youtube.co.in/" class="link" data-popup="Youtube">Youtube </a>
+        <a href="https://chatgpt.com/" class="link" data-popup="chatgpt">chatgpt</a>
+        <a href="https://www.linkedin.com/" class="link" data-popup="LinkedIn">LinkedIn</a>
+        <a href="https://www.codewithharry.com/" class="link" data-popup="Code with Harry 👀">Code with Harry 👀</a>
+
+        <!-- Popup container -->
+        <div id="popup" class="popup"></div>
+    </header>
+
+    <script>
+        // Get all the links with class 'link'
+        const links = document.querySelectorAll('.link');
+        const popup = document.getElementById('popup');
+
+        // Show the popup when mouse enters the link
+        links.forEach(link => {
+            link.addEventListener('mouseenter', function () {
+                const text = this.getAttribute('data-popup');
+                popup.textContent = `Visit ${text} now!`; // Update the popup text
+                popup.style.display = 'block'; // Show the popup
+            });
+
+            link.addEventListener('mouseleave', function () {
+                popup.style.display = 'none'; // Hide the popup when mouse leaves
+            });
+        });
+    </script>
+</body>
+
+</html>
